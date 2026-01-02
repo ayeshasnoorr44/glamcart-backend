@@ -1,0 +1,36 @@
+{
+  "name": "glamcart-backend",
+  "version": "1.0.0",
+  "description": "Glamcart Backend API - Virtual Try-On and Lipstick Products",
+  "main": "dist/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx --watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "test": "jest",
+    "lint": "eslint src/",
+    "docker:build": "docker build -t glamcart-backend:latest .",
+    "docker:run": "docker run -p 5000:5000 --env-file .env glamcart-backend:latest"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "multer": "^1.4.5-lts.1",
+    "sharp": "^0.32.6"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^4.17.21",
+    "@types/jest": "^29.5.8",
+    "@types/multer": "^1.4.11",
+    "@types/node": "^20.10.0",
+    "eslint": "^8.55.0",
+    "jest": "^29.7.0",
+    "tsx": "^4.6.2",
+    "typescript": "^5.3.3"
+  }
+}
