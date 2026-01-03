@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import { connectDB } from './config/database.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import productRoutes from './api/routes/products.js';
+import authRoutes from './api/routes/auth.js';
 import tryOnRoutes from './api/routes/tryOn.js';
 import cartRoutes from './api/routes/cart.js';
 
@@ -47,6 +48,7 @@ app.get('/health', (req, res) => {
 
 // Routes
 app.use('/api/products', productRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/try-on', tryOnRoutes);
 app.use('/api/cart', cartRoutes);
 
