@@ -5,6 +5,7 @@ export interface IProduct extends Document {
   brand: string;
   description: string;
   price: number;
+  imageUrl?: string;
   colors: {
     name: string;
     hex: string;
@@ -24,6 +25,7 @@ const productSchema = new Schema<IProduct>(
     brand: { type: String, required: true },
     description: { type: String, required: true },
     price: { type: Number, required: true },
+    imageUrl: { type: String, default: null },
     colors: [
       {
         name: String,

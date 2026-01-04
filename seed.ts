@@ -10,6 +10,7 @@ const sampleProducts = [
     brand: 'MAC',
     description: 'Deep red lipstick with a luxurious matte finish. Perfect for a timeless, classic look.',
     price: 45.99,
+    imageUrl: 'https://images.unsplash.com/photo-1599931020328-8fb986fad51f?w=400&h=400&fit=crop',
     colors: [
       { name: 'Deep Red', hex: '#C41E3A', imageUrl: 'https://via.placeholder.com/100?text=Deep+Red' },
     ],
@@ -23,6 +24,7 @@ const sampleProducts = [
     brand: 'Charlotte Tilbury',
     description: 'Soft pink lipstick that complements all skin tones. Creamy and comfortable.',
     price: 52.00,
+    imageUrl: 'https://images.unsplash.com/photo-1597318911285-96f8d5a1d64c?w=400&h=400&fit=crop',
     colors: [
       { name: 'Soft Pink', hex: '#FFB6C1', imageUrl: 'https://via.placeholder.com/100?text=Soft+Pink' },
     ],
@@ -36,6 +38,7 @@ const sampleProducts = [
     brand: 'Nars',
     description: 'Rich berry tone with a semi-gloss finish. Stunning and versatile.',
     price: 39.99,
+    imageUrl: 'https://images.unsplash.com/photo-1596289002574-d25a4a88da60?w=400&h=400&fit=crop',
     colors: [
       { name: 'Berry', hex: '#6F2E4E', imageUrl: 'https://via.placeholder.com/100?text=Berry' },
     ],
@@ -49,6 +52,7 @@ const sampleProducts = [
     brand: 'Bobbi Brown',
     description: 'Universally flattering nude shade with a natural finish.',
     price: 42.50,
+    imageUrl: 'https://images.unsplash.com/photo-1596289002574-d25a4a88da60?w=400&h=400&fit=crop',
     colors: [
       { name: 'Nude', hex: '#D4A574', imageUrl: 'https://via.placeholder.com/100?text=Nude' },
     ],
@@ -62,6 +66,7 @@ const sampleProducts = [
     brand: 'Urban Decay',
     description: 'Golden eyeshadow with a shimmering finish. Creates a warm, glowing eye look.',
     price: 28.00,
+    imageUrl: 'https://images.unsplash.com/photo-1599331267494-4a82b1e0cf8c?w=400&h=400&fit=crop',
     colors: [
       { name: 'Gold', hex: '#FFD700', imageUrl: 'https://via.placeholder.com/100?text=Gold' },
       { name: 'Bronze', hex: '#CD7F32', imageUrl: 'https://via.placeholder.com/100?text=Bronze' },
@@ -76,6 +81,7 @@ const sampleProducts = [
     brand: 'Anastasia Beverly Hills',
     description: 'Deep navy and black eyeshadow palette for dramatic looks.',
     price: 35.00,
+    imageUrl: 'https://images.unsplash.com/photo-1599331267494-4a82b1e0cf8c?w=400&h=400&fit=crop',
     colors: [
       { name: 'Navy', hex: '#000080', imageUrl: 'https://via.placeholder.com/100?text=Navy' },
       { name: 'Black', hex: '#000000', imageUrl: 'https://via.placeholder.com/100?text=Black' },
@@ -90,6 +96,7 @@ const sampleProducts = [
     brand: 'Tarte',
     description: 'Peachy-rose blush that adds a natural flush to cheeks.',
     price: 32.00,
+    imageUrl: 'https://images.unsplash.com/photo-1596289002574-d25a4a88da60?w=400&h=400&fit=crop',
     colors: [
       { name: 'Peachy Rose', hex: '#FFB6B9', imageUrl: 'https://via.placeholder.com/100?text=Peachy+Rose' },
     ],
@@ -103,6 +110,7 @@ const sampleProducts = [
     brand: 'Benefit',
     description: 'Vibrant coral blush that brightens the complexion instantly.',
     price: 29.50,
+    imageUrl: 'https://images.unsplash.com/photo-1596289002574-d25a4a88da60?w=400&h=400&fit=crop',
     colors: [
       { name: 'Coral', hex: '#FF7F50', imageUrl: 'https://via.placeholder.com/100?text=Coral' },
     ],
@@ -116,6 +124,7 @@ const sampleProducts = [
     brand: 'Too Faced',
     description: 'Rich plum blush for a sophisticated, elevated look.',
     price: 36.00,
+    imageUrl: 'https://images.unsplash.com/photo-1596289002574-d25a4a88da60?w=400&h=400&fit=crop',
     colors: [
       { name: 'Plum', hex: '#8B4789', imageUrl: 'https://via.placeholder.com/100?text=Plum' },
     ],
@@ -129,6 +138,7 @@ const sampleProducts = [
     brand: 'Dior',
     description: 'Elegant mauve eyeshadow for a chic, timeless appearance.',
     price: 44.00,
+    imageUrl: 'https://images.unsplash.com/photo-1599331267494-4a82b1e0cf8c?w=400&h=400&fit=crop',
     colors: [
       { name: 'Mauve', hex: '#E0B0FF', imageUrl: 'https://via.placeholder.com/100?text=Mauve' },
     ],
