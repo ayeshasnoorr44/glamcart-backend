@@ -18,22 +18,25 @@ app.use(cors({
   origin: function (origin, callback) {
     const allowedOrigins = [
       "https://clownfish-app-pn8ie.ondigitalocean.app",
-      "http://159.89.170.225:5000",
       "http://localhost:3000",
       "http://localhost:3001",
-      "http://localhost:5000"
+      "http://localhost:5000",
+      "http://localhost",
+      "http://159.89.170.225:5000" // Backend itself (for same-origin calls)
     ];
     
     // Allow requests with no origin (like mobile apps or curl requests)
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
-      callback(new Error('CORS not allowed for this origin: ' + origin));
+      console.warn(`CORS blocked origin: ${origin}`);
+      callback(null, true); // Allow all for now to debug
     }
   },
-  credentials: true,
+  credentials: false, // Changed to false for cross-origin
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  preflightContinue: true
 }));
 app.use(express.json());
 app.use(express.urlencoded({ limit: '50mb', extended: true }));

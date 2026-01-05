@@ -7,11 +7,16 @@ const router = express.Router();
 // Get all products
 router.get('/', async (req: Request, res: Response) => {
   try {
-    const { category, brand } = req.query;
+    const { category, brand, search } = req.query;
     const filter: any = {};
 
     if (category) filter.category = category;
     if (brand) filter.brand = brand;
+    
+    // Add search by product name
+    if (search) {
+      filter.name = { $regex: search, $options: 'i' }; // Case-insensitive search
+    }
 
     const products = await Product.find(filter).limit(100);
     res.status(200).json({
