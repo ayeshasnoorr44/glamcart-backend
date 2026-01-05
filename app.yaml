@@ -12,5 +12,3 @@ services:
     value: ${MONGODB_URI}
   - key: NODE_ENV
     value: production
-  - key: CORS_ORIGIN
-    value: https://glamcart-frontend.ondigitalocean.app
