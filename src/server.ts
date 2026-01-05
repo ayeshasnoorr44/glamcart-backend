@@ -11,7 +11,9 @@ import cartRoutes from './api/routes/cart.js';
 dotenv.config();
 
 const app = express();
-const PORT: number = parseInt(process.env.PORT || '5000', 10);
+
+// 1. Convert Port to a Number (Fixes the Docker error)
+const PORT: number = Number(process.env.PORT) || 5000;
 
 // Middleware
 app.use(cors({
