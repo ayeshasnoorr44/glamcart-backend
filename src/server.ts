@@ -17,7 +17,30 @@ const PORT: number = Number(process.env.PORT) || 5000;
 
 // Middleware
 app.use(cors({
-  origin: "https://clownfish-app-pn8ie.ondigitalocean.app",
+  origin: function (origin, callback) {
+    // Allow all DigitalOcean domains and the specific frontend domain
+    const allowedPatterns = [
+      /https:\/\/.*\.ondigitalocean\.app$/,
+      /http:\/\/localhost/,
+      /http:\/\/127\.0\.0\.1/
+    ];
+    
+    // If no origin (mobile apps, curl, etc.), allow it
+    if (!origin) {
+      callback(null, true);
+      return;
+    }
+    
+    // Check if origin matches any allowed pattern
+    const isAllowed = allowedPatterns.some(pattern => pattern.test(origin));
+    
+    if (isAllowed) {
+      callback(null, true);
+    } else {
+      console.log(`CORS allowed origin: ${origin}`);
+      callback(null, true); // Allow all for now to debug
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']

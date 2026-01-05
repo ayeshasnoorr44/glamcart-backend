@@ -7,6 +7,7 @@ const router = express.Router();
 // Get all products
 router.get('/', async (req: Request, res: Response) => {
   try {
+    console.log('📦 GET /api/products request received');
     const { category, brand, search } = req.query;
     const filter: any = {};
 
@@ -19,12 +20,14 @@ router.get('/', async (req: Request, res: Response) => {
     }
 
     const products = await Product.find(filter).limit(100);
+    console.log(`✅ Found ${products.length} products`);
     res.status(200).json({
       success: true,
       count: products.length,
       data: products,
     });
   } catch (error) {
+    console.error('❌ Error fetching products:', error);
     res.status(500).json({ success: false, message: 'Failed to fetch products' });
   }
 });
