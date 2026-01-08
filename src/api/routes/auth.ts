@@ -41,12 +41,13 @@ router.post('/register', async (req: Request, res: Response) => {
       _id: user._id,
       email: user.email,
       name: user.name,
+      role: user.role,
       createdAt: user.createdAt,
     };
 
-    // Generate JWT token
+    // Generate JWT token with role
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { userId: user._id, email: user.email, role: user.role },
       process.env.JWT_SECRET || 'your-secret-key-change-in-production',
       { expiresIn: '7d' }
     );
@@ -102,12 +103,13 @@ router.post('/login', async (req: Request, res: Response) => {
       _id: user._id,
       email: user.email,
       name: user.name,
+      role: user.role,
       createdAt: user.createdAt,
     };
 
-    // Generate JWT token
+    // Generate JWT token with role
     const token = jwt.sign(
-      { userId: user._id, email: user.email },
+      { userId: user._id, email: user.email, role: user.role },
       process.env.JWT_SECRET || 'your-secret-key-change-in-production',
       { expiresIn: '7d' }
     );

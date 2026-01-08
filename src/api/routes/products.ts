@@ -1,6 +1,7 @@
 import express, { Request, Response } from 'express';
 import Product from '../../models/Product.js';
 import { AppError } from '../../middleware/errorHandler.js';
+import { authenticate, authorize } from '../../middleware/authorize.js';
 
 const router = express.Router();
 
@@ -46,8 +47,9 @@ router.get('/:id', async (req: Request, res: Response) => {
 });
 
 // Create product (admin)
-router.post('/', async (req: Request, res: Response) => {
+router.post('/', authenticate, authorize, async (req: Request, res: Response) => {
   try {
+    console.log(`👑 Admin ${req.user?.email} creating product`);
     const product = new Product(req.body);
     await product.save();
     res.status(201).json({ success: true, data: product });
@@ -57,8 +59,9 @@ router.post('/', async (req: Request, res: Response) => {
 });
 
 // Update product (admin)
-router.put('/:id', async (req: Request, res: Response) => {
+router.put('/:id', authenticate, authorize, async (req: Request, res: Response) => {
   try {
+    console.log(`👑 Admin ${req.user?.email} updating product ${req.params.id}`);
     const product = await Product.findByIdAndUpdate(
       req.params.id,
       req.body,
@@ -74,8 +77,9 @@ router.put('/:id', async (req: Request, res: Response) => {
 });
 
 // Delete product (admin)
-router.delete('/:id', async (req: Request, res: Response) => {
+router.delete('/:id', authenticate, authorize, async (req: Request, res: Response) => {
   try {
+    console.log(`👑 Admin ${req.user?.email} deleting product ${req.params.id}`);
     const product = await Product.findByIdAndDelete(req.params.id);
     if (!product) {
       return res.status(404).json({ success: false, message: 'Product not found' });

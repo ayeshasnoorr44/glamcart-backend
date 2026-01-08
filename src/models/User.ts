@@ -6,6 +6,7 @@ export interface IUser extends Document {
   password?: string;
   name: string;
   photoUrl?: string;
+  role: 'user' | 'admin';
   cart: Array<{
     productId: mongoose.Types.ObjectId;
     colorHex: string;
@@ -22,6 +23,7 @@ const userSchema = new Schema<IUser>(
     password: { type: String, minlength: 6 },
     name: { type: String, required: true },
     photoUrl: String,
+    role: { type: String, enum: ['user', 'admin'], default: 'user' },
     cart: [
       {
         productId: { type: Schema.Types.ObjectId, ref: 'Product' },
